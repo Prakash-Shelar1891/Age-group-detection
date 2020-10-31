@@ -11,11 +11,11 @@ def load_img(path):
     dim = (500, int((h*500)/w))
     return image.resize(dim)
 
-st.markdown("# PotHole_Image Classifier")
-st.markdown("Upload an image and the classifier will tell you whether its Perfect road Or Road with Pothole.")
+st.markdown("# Age group detection")
+st.markdown("Upload an image to detect whether Age group is Toddler, Teenager or Adult.")
 
 with st.spinner('Downloading model...'):
-    download_from_gdrive(file_id='1bH6n5fCJMo7EjIIQyM0shDbkNdCCm0w0',  dest_path='./export.pkl')
+    download_from_gdrive(file_id='1Q1i9NHi8jEevlzWOrZ0DVETkTAKhD-5K',  dest_path='./export.pkl')
 learn = load_learner_('export.pkl')
 
 file_bytes = st.file_uploader("Upload a file", type=("png", "jpg", "jpeg", "jfif"))
@@ -26,4 +26,4 @@ if file_bytes:
     submit = st.button('Predict!')
     if submit:
         pred, pred_idx, probs = learn.predict(PILImage(img))
-        st.markdown(f'Prediction: **{pred}**; Probability: **{probs[pred_idx]:.04f}**')
+        st.markdown(f'The age group is: **{pred}**; Probability: **{probs[pred_idx]:.04f}**')
