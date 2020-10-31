@@ -15,7 +15,7 @@ st.markdown("# Age group detection")
 st.markdown("Upload an image to detect whether Age group is Toddler, Teenager or Adult.")
 
 with st.spinner('Downloading model...'):
-    download_from_gdrive(file_id='1Q1i9NHi8jEevlzWOrZ0DVETkTAKhD-5K',  dest_path='./export.pkl')
+    download_from_gdrive(file_id='1fSb7B0WBFEqNzWTGchJ38uMnIvEqZMau',  dest_path='./export.pkl')
 learn = load_learner_('export.pkl')
 
 file_bytes = st.file_uploader("Upload a file", type=("png", "jpg", "jpeg", "jfif"))
